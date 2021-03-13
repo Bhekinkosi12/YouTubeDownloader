@@ -168,6 +168,8 @@ def unavailable_audio(pytube_object):
     os.rename(destination_path + pytube_object.title +
               ".mp4", name_with_resolution)
     print(f"\n{pytube_object.title} downloaded succesfully.")
+    
+    
 
 
 def download_video(pytube_object):
@@ -261,7 +263,11 @@ def set_destination_path():
             config_file.truncate()
     else:
         return handle_invalid_input()
+      
+      
     return settings_menu()
+  
+  
 
 
 def set_qualities():
@@ -325,6 +331,7 @@ def list_settings():
         for setting, value in config_data.items():
             print(f"{setting.capitalize().replace('_', ' ')} = {value}")
     input("\n\nPress enter to continue...")
+                  
     return settings_menu()
 
 
@@ -342,10 +349,12 @@ def exit():
 def handle_invalid_input():
     input("\n\nError: Invalid input.\nPress enter to continue...")
     clear_terminal()
+                  
     return globals()[inspect.stack()[1][3]]()
 
 
 def clear_terminal():
+                  
     return os.system('cls' if os.name == 'nt' else 'clear')
 
 
